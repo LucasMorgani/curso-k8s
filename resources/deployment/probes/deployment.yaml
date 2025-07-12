@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-teste
+  name: nginx-teste
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-teste
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx-teste
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        env:
+          - name: ENVIRONMENT
+            value: development
+          - name: ALUNO
+            value: Lucas
+        readinessProbe:
+          httpGet:
+            path: "/" 
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: "/"
+            port: 80

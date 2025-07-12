@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Daemonset
+metadata:
+  labels:
+    app: nginx-teste
+  name: nginx-teste
+spec:
+  selector:
+    matchLabels:
+      app: nginx-teste
+  template:
+    metadata:
+      labels:
+        app: nginx-teste
+    spec:
+      containers:
+      - image: nginx
+        name: nginx

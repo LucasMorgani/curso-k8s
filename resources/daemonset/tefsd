@@ -1,0 +1,10 @@
+item1 {
+  nome: lucas
+  altura: 1.70
+}
+
+item2 {
+  nome: claudio
+  altura: 1.90
+}
+

@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: echo-command
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+       spec:
+          containers:
+          - name: sleep
+            image: alpine
+            command: ["echo", "Teste"]
+          restartPolicy: OnFailure    # Restarta o job caso falhe
+      # ttlSecondsAfterFinished: 0      # Assim que o job finalizar, deleta o job
